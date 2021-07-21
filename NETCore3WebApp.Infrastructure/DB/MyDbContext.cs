@@ -12,6 +12,9 @@ namespace NETCore3WebApp.Infrastructure.DB
         private static readonly ILog Log = LogManager.GetLogger(typeof(MyDbContext));
 
         public DbSet<Domain.Entity> Entities { get; set; }
+        public DbSet<Domain.Course> Courses { get; set; }
+        public DbSet<Domain.Student> Students { get; set; }
+        public DbSet<Domain.Enrollment> Enrollments { get; set; }
 
         public MyDbContext(string connectionString) : base()
         {
