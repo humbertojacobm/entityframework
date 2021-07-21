@@ -33,6 +33,7 @@ namespace NETCore3WebApp.API
         private static void configureBusinessManagers(IServiceCollection services)
         {
             services.AddTransient<IMyEntityManager, MyEntityManager>();
+            services.AddTransient<ICourseManager, CourseManager>();
         }
     }
 }
