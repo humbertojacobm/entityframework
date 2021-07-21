@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using NETCore3WebApp.Infrastructure.DB;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,11 @@ namespace NETCore3WebApp.Business
 
         public Domain.Course GetCourse(int id)
         {
-            return _contextGenerator.GenerateMyDbContext().Courses.FirstOrDefault(course => course.CourseId == id);
+            return _contextGenerator.GenerateMyDbContext().Courses
+                .Include(c => c.Enrollments)
+                .AsNoTracking()
+                .FirstOrDefault(course => course.CourseId == id)
+                ;
         }
     }
 }

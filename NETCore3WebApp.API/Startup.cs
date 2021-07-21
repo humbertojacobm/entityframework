@@ -38,6 +38,7 @@ namespace NETCore3WebApp.API
             {
                 options.SerializerSettings.ContractResolver =
                     new DefaultContractResolver();
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
             });
         }
 
